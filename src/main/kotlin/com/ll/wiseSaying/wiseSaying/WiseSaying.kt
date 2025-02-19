@@ -1,4 +1,4 @@
-package com.ll.com.ll
+package com.ll.com.ll.wiseSaying.wiseSaying
 
 data class WiseSaying(
     val id: Int,
