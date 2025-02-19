@@ -52,6 +52,33 @@ class App {
                     } else {
                         println("${id}번 명언은 존재하지 않습니다.")
                     }
+                } else if (rq.action == "수정") {
+                    val id = rq.getParamValueAsInt("id", 0)
+                    if (id == 0) {
+                        println("id를 입력해주세요.")
+                        continue
+                    }
+
+                    println("입력된 id : $id")
+
+                    val wiseSaying = wiseSayingList.firstOrNull{it.id == id}
+
+                    if (wiseSaying == null) {
+                        println("${id}번 명언은 존재하지 않습니다.")
+                        continue
+                    }
+
+                    println("명언(기존) : ${wiseSaying.wise}")
+                    print("명언 : ")
+                    val updatedWise = readlnOrNull()!!.trim()
+                    println("작가(기존) : ${wiseSaying.author}")
+                    print("작가 : ")
+                    val updatedAuthor = readlnOrNull()!!.trim()
+
+                    wiseSaying.wise = updatedWise
+                    wiseSaying.author = updatedAuthor
+
+                    println("${id}번 명언을 수정하였습니다.")
                 }
             }
         }
