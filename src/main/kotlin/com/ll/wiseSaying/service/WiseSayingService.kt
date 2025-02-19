@@ -1,37 +1,35 @@
 package com.ll.com.ll.wiseSaying.service
 
+import com.ll.com.ll.wiseSaying.repository.WiseSayingRepository
 import com.ll.com.ll.wiseSaying.wiseSaying.WiseSaying
 
 class WiseSayingService {
 
-    val wiseSayingList = mutableListOf<WiseSaying>()
-    var lastId = 0;
+
+    private val wiseSayingRepository = WiseSayingRepository()
 
     fun write(wise: String, author: String): WiseSaying {
-        val wiseSaying = WiseSaying(++lastId, wise, author)
-        wiseSayingList.add(wiseSaying)
-        return wiseSaying
+       return wiseSayingRepository.save(WiseSaying(wise, author))
     }
 
     fun isEmpty(): Boolean {
-        return wiseSayingList.isEmpty()
+        return wiseSayingRepository.isEmpty()
     }
 
     fun findAll() : List<WiseSaying>{
-        return wiseSayingList
+        return wiseSayingRepository.findAll()
     }
 
     fun findById(id: Int): WiseSaying? {
-        return wiseSayingList.find { it.id == id }
+        return wiseSayingRepository.findById(id)
     }
 
     fun delete(wiseSaying: WiseSaying) {
-        wiseSayingList.remove(wiseSaying)
+        wiseSayingRepository.delete(wiseSaying)
     }
 
-    fun modify(wiseSaying: WiseSaying, updatedAuthor: String, updatedWise: String) {
-        wiseSaying.wise = updatedWise
-        wiseSaying.author = updatedAuthor
+    fun modify(wiseSaying: WiseSaying, updatedWise: String, updatedAuthor: String,) {
+        wiseSayingRepository.modify(wiseSaying, updatedWise, updatedAuthor)
     }
 
 

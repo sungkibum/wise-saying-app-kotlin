@@ -1,9 +1,9 @@
 package com.ll.com.ll.wiseSaying.wiseSaying
 
 data class WiseSaying(
-    val id: Int,
+    var id: Int,
     var wise: String,
     var author: String
     ){
-
+    constructor(wise: String, author: String) : this(0, wise, author)
 }
