@@ -2,5 +2,5 @@ package com.ll
 
 
 fun main() {
-    App.run()
+    App().run()
 }
