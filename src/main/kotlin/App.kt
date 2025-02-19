@@ -5,8 +5,6 @@ import com.ll.com.ll.wiseSaying.controller.SystemController
 import com.ll.com.ll.wiseSaying.controller.WiseSayingController
 
 class App {
-
-
         fun run() {
             val wiseSayingController = WiseSayingController()
             val systemController = SystemController()
@@ -14,9 +12,7 @@ class App {
 
             while (true) {
                 print("명령) ")
-
                 val cmd = readlnOrNull()!!.trim()    //cmd에 null 일 리가 없기 때문에 !! 삽입    null일 수 있다면 ? 사용
-
                 val rq = Rq(cmd)
 
                 when (rq.action) {
